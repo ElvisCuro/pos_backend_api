@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-y01bebked-vj#^g)n_s4q2+6-i0!l)pe!6q2cn6aj_02i2z0x8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -53,10 +53,9 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
-    'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware",
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -88,15 +87,14 @@ WSGI_APPLICATION = 'pos_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('MYSQL_ADDON_DB', default='db_pos_backend'),
-        'USER': config('MYSQL_ADDON_USER', default='root'),
-        'PASSWORD': config('MYSQL_ADDON_PASSWORD', default=''),
-        'HOST': config('MYSQL_ADDON_HOST', default='127.0.0.1'),
-        'PORT': config('MYSQL_ADDON_PORT', default='3306'),
+        'NAME': config('MYSQL_ADDON_DB',default='db_post_backend'),
+        'USER': config('MYSQL_ADDON_USER',default='root'),
+        'PASSWORD': config('MYSQL_ADDON_PASSWORD',default=''),
+        'HOST': config('MYSQL_ADDON_HOST',default='127.0.0.1'),
+        'PORT': config('MYSQL_ADDON_PORT',default='3306'),
     }
 }
 
@@ -139,19 +137,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
+
           
 cloudinary.config( 
-  cloud_name = "dcpqcouzc", 
-  api_key = "845263549815739", 
-  api_secret = "ikEgQsFJ4fOZvy7fVKleb8EXG_8" 
+  cloud_name = "drg6ls3cv", 
+  api_key = "434377913435545", 
+  api_secret = "Knpzgi7k87hvvj-Pl1QdZuP_NB0" 
 )
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
